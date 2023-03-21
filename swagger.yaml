@@ -2,152 +2,152 @@ openapi: 3.0.0
 info:
   title: jobs-api
   contact: {}
-  version: '1.0'
+  version: "1.0"
 servers:
-- url: https://jobs-api-wkbq.onrender.com
-  variables: {}
+  - url: https://jobs-api-wkbq.onrender.com/api/v1
+    variables: {}
 paths:
   /jobs:
     get:
       tags:
-      - jobs
+        - jobs
       summary: get all jobs
       operationId: getalljobs
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           headers: {}
       deprecated: false
       security:
-      - bearer: []
+        - bearer: []
     post:
       tags:
-      - jobs
+        - jobs
       summary: Create a job
       operationId: Createajob
       parameters: []
       requestBody:
-        description: ''
+        description: ""
         content:
           application/json:
             schema:
               allOf:
-              - $ref: '#/components/schemas/CreateajobRequest'
-              - example:
-                  company: Google
-                  position: SDE1
+                - $ref: "#/components/schemas/CreateajobRequest"
+                - example:
+                    company: Google
+                    position: SDE1
             example:
               company: Google
               position: SDE1
         required: true
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           headers: {}
       deprecated: false
       security:
-      - bearer: []
+        - bearer: []
   /jobs/{id}:
     parameters:
-    - in: path
-      name: id
-      schema:
-        type: string
-      required: true
-      description: the job id
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: the job id
     get:
       tags:
-      - jobs
+        - jobs
       summary: Get a job
       operationId: Getajob
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           headers: {}
       deprecated: false
       security:
-      - bearer: []
+        - bearer: []
     patch:
       tags:
-      - jobs
+        - jobs
       summary: Update a job
       operationId: Updateajob
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           headers: {}
       deprecated: false
       security:
-      - bearer: []
+        - bearer: []
     delete:
       tags:
-      - jobs
+        - jobs
       summary: Delete a job
       operationId: Deleteajob
       parameters: []
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           headers: {}
       deprecated: false
       security:
-      - bearer: []
+        - bearer: []
   /auth/register:
     post:
       tags:
-      - auth
+        - auth
       summary: Register
       operationId: Register
       parameters: []
       requestBody:
-        description: ''
+        description: ""
         content:
           application/json:
             schema:
               allOf:
-              - $ref: '#/components/schemas/RegisterRequest'
-              - example:
-                  name: Paras Jain
-                  email: justChecking@gmail.com
-                  password: Admin@123
+                - $ref: "#/components/schemas/RegisterRequest"
+                - example:
+                    name: Paras Jain
+                    email: justChecking@gmail.com
+                    password: Admin@123
             example:
               name: Paras Jain
               email: justChecking@gmail.com
               password: Admin@123
         required: true
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           headers: {}
       deprecated: false
       security: []
   /auth/login:
     post:
       tags:
-      - auth
+        - auth
       summary: Login
       operationId: Login
       parameters: []
       requestBody:
-        description: ''
+        description: ""
         content:
           application/json:
             schema:
               allOf:
-              - $ref: '#/components/schemas/LoginRequest'
-              - example:
-                  email: jainparas979797@gmail.com
-                  password: Admin@123
+                - $ref: "#/components/schemas/LoginRequest"
+                - example:
+                    email: jainparas979797@gmail.com
+                    password: Admin@123
             example:
               email: jainparas979797@gmail.com
               password: Admin@123
         required: true
       responses:
-        '200':
-          description: ''
+        "200":
+          description: ""
           headers: {}
       deprecated: false
       security: []
@@ -156,8 +156,8 @@ components:
     CreateajobRequest:
       title: CreateajobRequest
       required:
-      - company
-      - position
+        - company
+        - position
       type: object
       properties:
         company:
@@ -170,9 +170,9 @@ components:
     RegisterRequest:
       title: RegisterRequest
       required:
-      - name
-      - email
-      - password
+        - name
+        - email
+        - password
       type: object
       properties:
         name:
@@ -188,8 +188,8 @@ components:
     LoginRequest:
       title: LoginRequest
       required:
-      - email
-      - password
+        - email
+        - password
       type: object
       properties:
         email:
@@ -205,7 +205,7 @@ components:
       scheme: bearer
 security: []
 tags:
-- name: jobs
-  description: ''
-- name: auth
-  description: ''
+  - name: jobs
+    description: ""
+  - name: auth
+    description: ""
